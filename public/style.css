@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button,
+input {
+  margin: 0.5rem;
+  padding: 1rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: calc(2rem + 2vw);
+  text-align: center;
+  border-radius: 15px;
+  width: 100%;
+  height: 15rem;
+  border: 0.2rem solid rgb(0, 0, 0);
+  background-color: transparent;
+  backdrop-filter: blur(
+    5px
+  ); /* Cambia la propiedad a backdrop-filter y utiliza un valor válido de filtro */
+}
+::placeholder {
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+input:focus::placeholder {
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+input:not(focus)::placeholder {
+  opacity: 1;
+  transition: opacity 0.4s ease-in;
+}
+
+button:focus,
+button:hover {
+  background-color: rgb(36, 135, 174);
+  color: rgb(255, 255, 255);
+  transition: 0.2s ease-in-out;
+}
+button:active {
+  background-color: rgb(36, 135, 174);
+  color: rgb(255, 255, 255);
+  transform: translateY(0.2rem);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Poppins", sans-serif;
+  background-color: beige;
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+#Content {
+  position: fixed;
+  z-index: 999;
+  width: 75%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#background-content {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  font-size: calc(4vw + 4vh);
+  overflow: visible;
+  color: rgb(36, 135, 174);
+  text-transform: uppercase;
+  font-weight: bold;
+  height: 150vh;
+  width: 200%;
+  animation: animate 60s alternate infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: translate() rotate(20deg);
+  }
+  100% {
+    transform: translate(40%, 40%) rotate(-20deg);
+  }
+}
+
+@media (max-width: 768px) {
+  /* Estilos para dispositivos móviles con pantalla de hasta 768px de ancho */
+  button,
+  input {
+    font-size: calc(2.5rem + 2vw); /* Aumenta el tamaño de la fuente */
+    padding: 1.5rem; /* Aumenta el padding */
+  }
+  input {
+    height: 20rem; /* Aumenta la altura */
+  }
+  button {
+    height: 10rem; /* Aumenta la altura */
+    background-color: rgb(36, 135, 174);
+  }
+  button:focus,
+  button:hover,
+  button:active {
+    background-color: rgb(36, 135, 174);
+    color: rgb(255, 255, 255);
+    transform: translateY(0.2rem);
+  }
+}
